@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:39:47 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/06 20:05:41 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/06 21:37:28 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ typedef struct s_line
 	char			*content;
 	struct s_line	*next;
 }					t_line;
+
+t_line	*add_line(t_line *list, char *content);
+int		count_line(t_line *list);
+void	free_list(t_line *list);
+char	**convert_list_to_array(t_line list, int size);
 
 // check si extension est .ber
 static int	check_extension(char *file_name)
