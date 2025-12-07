@@ -6,14 +6,14 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/06 20:32:16 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/07 18:48:25 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -Wpadded -g3
 INCLUDES =  -I./include -I./ft_printf -I./libft
 
 LIBFT_DIR = ./libft
@@ -27,7 +27,9 @@ LIBS = -L$(LIBFT_DIR) -lft \
 
 SRCS =  main.c \
 		mandatory/map/parsing_map.c \
-		mandatory/map/parsing_map_utils.c
+		mandatory/map/parsing_map_utils.c \
+		mandatory/map/init_map.c \
+		mandatory/map/valid_map.c
 
 OBJS = $(SRCS:.c=.o)
 
