@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:18:44 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/07 18:35:47 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/08 20:03:27 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../../ft_printf/ft_printf.h"
 # include "../../libft/libft.h"
-
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -38,5 +37,6 @@ typedef struct s_map
 
 char		**read_file_to_array(char *file_name);
 t_map		parsing_map(char *file_name);
+int			valid_map(t_map *map);
 
 #endif
