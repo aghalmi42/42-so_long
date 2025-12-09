@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:05:32 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/07 18:35:01 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/09 16:44:49 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ static void	find_element_of_map(t_map *map)
 	}
 }
 
+// pars la dim map et composant map
 t_map	parsing_map(char *file_name)
 {
 	t_map	map;

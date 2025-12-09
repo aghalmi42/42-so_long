@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:39:47 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/07 03:26:56 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/09 16:49:18 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ static t_line	*read_line(int fd)
 	return (list);
 }
 
+// converti .ber en string
 char	**read_file_to_array(char *file_name)
 {
 	t_line	*list;
@@ -106,7 +107,7 @@ char	**read_file_to_array(char *file_name)
 		free_list(list);
 		return (NULL);
 	}
-	array = convert_list_to_array(list, count_line(list));
+	array = convert_list_to_array(*list, count_line(list));
 	free_list(list);
 	return (array);
 }

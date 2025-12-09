@@ -6,7 +6,7 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/07 18:48:25 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/09 16:57:54 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SRCS =  main.c \
 		mandatory/map/parsing_map.c \
 		mandatory/map/parsing_map_utils.c \
 		mandatory/map/init_map.c \
-		mandatory/map/valid_map.c
+		mandatory/map/valid_map.c \
+		mandatory/map/valid_track.c \
+		mandatory/map/valid_track_utils.c 
 
 OBJS = $(SRCS:.c=.o)
 
