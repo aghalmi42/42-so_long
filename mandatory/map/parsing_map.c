@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:39:47 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 16:49:18 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:38:04 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static t_line	*read_line(int fd)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		line = processus_of_line(list, line);
+		list = processus_of_line(list, line);
 		if (!list)
 		{
 			close(fd);

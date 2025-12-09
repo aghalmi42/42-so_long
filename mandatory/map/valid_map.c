@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:42:19 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 16:44:18 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:33:01 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ static int	check_wall(t_map *map)
 	y = 0;
 	while (x < map->width)
 	{
-		if (map->grid[0][x] != 1)
+		if (map->grid[0][x] != '1')
 			return (0);
-		if (map->grid[map->height - 1][x] != 1)
+		if (map->grid[map->height - 1][x] != '1')
 			return (0);
 		x++;
 	}
 	while (y < map->height)
 	{
-		if (map->grid[0][y] != 1)
+		if (map->grid[y][0] != '1')
 			return (0);
-		if (map->grid[map->width - 1][y] != 1)
+		if (map->grid[y][map->width - 1] != '1')
 			return (0);
 		y++;
 	}
@@ -82,8 +82,8 @@ static void	count_element(t_map *map, int *player_count, int *exit_count)
 	int		y;
 	char	c;
 
-	player_count = 0;
-	exit_count = 0;
+	*player_count = 0;
+	*exit_count = 0;
 	y = 0;
 	while (y < map->height)
 	{

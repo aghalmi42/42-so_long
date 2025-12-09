@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:22:27 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/06 21:30:29 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:21:30 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_line	*add_line(t_line *list, char *content)
 	new->next = NULL;
 	if (list == NULL)
 		return (new);
+	tmp = list;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;

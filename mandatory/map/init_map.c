@@ -50,7 +50,7 @@ static void	scan_line(t_map *map, int y)
 	while (x < map->width)
 	{
 		check_char(map, x, y);
-		y++;
+		x++;
 	}
 }
 
