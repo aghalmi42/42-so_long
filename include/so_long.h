@@ -6,12 +6,12 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:18:44 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 21:08:42 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/10 21:38:32 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-# define SO_LONG_H
+# define SO_LONG_h
 
 # include "../ft_printf/ft_printf.h"
 # include "../get_next_line/get_next_line.h"
@@ -20,8 +20,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define KEY_ESC 65307
 # define TILE_SIZE 64
+# define KEY_ESC 65307
+# define KEY_W
+# define KEY_A
+# define KEY_S
+# define KEY_D
+# define KEY_UP
+# define KEY_DOWN
+# define KEY_RIGHT
+# define KEY_LEFT
 
 typedef struct s_pos
 {
@@ -78,9 +86,8 @@ int				init_mlx(t_game *game);
 int				init_game(t_game *game, char *file_map);
 void			display_map(t_game *game);
 void			load_texture(t_game *game);
-
-// TEST
+void			move_player(t_game *game, int x, int y);
 int				close_game(t_game *game);
-int				handle_keypress(int keycode, t_game *game);
+int				press_keypress(int keycode, t_game *game);
 
 #endif

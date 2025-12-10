@@ -6,13 +6,13 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/09 21:10:49 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/10 21:17:56 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = so_long
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -g3
+CFLAGS      = -Wall -Wextra -Werror -g3 -Wpadded
 INCLUDES    = -I./include -I./ft_printf -I./libft -I./minilibx-linux
 LIBS        = -L./minilibx-linux -lmlx -lXext -lX11 -lm
 
