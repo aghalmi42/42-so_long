@@ -6,21 +6,21 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:07:06 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/10 21:37:52 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/11 21:04:30 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 #include "../../minilibx-linux/mlx.h"
 
-//verif si nv pose est valide
+// verif si nv pose est valide
 static int	valid_move(t_game *game, int new_x, int new_y)
 {
 	if (new_x < 0 || new_x >= game->map.width)
 		return (0);
 	if (new_y < 0 || new_y >= game->map.height)
 		return (0);
-	if (game->map.grid[new_y][new_x == '1'])
+	if (game->map.grid[new_y][new_x] == '1')
 		return (0);
 	return (1);
 }
@@ -37,7 +37,7 @@ static void	collect_collectible(t_game *game, int x, int y)
 	}
 }
 
-//verif si player a win
+// verif si player a win
 static void	check_win(t_game *game, int x, int y)
 {
 	if (game->map.grid[y][x] == 'E')
@@ -54,21 +54,23 @@ static void	check_win(t_game *game, int x, int y)
 	}
 }
 
-//deplacer le player
+// deplacer le player
 void	move_player(t_game *game, int x, int y)
 {
 	int	new_x;
 	int	new_y;
 
 	new_x = game->player.pos.x + x;
-	new_y = game->player.pos.y = y;
+	new_y = game->player.pos.y + y;
 	if (!valid_move(game, new_x, new_y))
 		return ;
 	game->player.pos.x = new_x;
 	game->player.pos.y = new_y;
 	game->player.move++;
-	ft_printf("Move :%d\n", game->.player.move);
+	ft_printf("Move :%d\n", game->player.move);
 	collect_collectible(game, new_x, new_y);
 	check_win(game, new_x, new_y);
 	display_map(game);
+	display_move(game);
+	display_collectible(game);
 }

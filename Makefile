@@ -6,13 +6,13 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/10 21:17:56 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/11 20:14:22 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = so_long
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -g3 -Wpadded
+CFLAGS      = -Wall -Wextra -Werror -g3
 INCLUDES    = -I./include -I./ft_printf -I./libft -I./minilibx-linux
 LIBS        = -L./minilibx-linux -lmlx -lXext -lX11 -lm
 
@@ -29,6 +29,7 @@ MAP_DIR     = $(MAND_DIR)/map
 GRAPH_DIR   = $(MAND_DIR)/graphics
 UTILS_DIR   = $(MAND_DIR)/utils
 GAME_DIR    = $(MAND_DIR)/gameplay
+BONUS_DIR	= $(MAND_DIR)/bonus
 
 SRCS        = $(MAND_DIR)/main.c \
               $(MAP_DIR)/parsing_map.c \
@@ -40,6 +41,9 @@ SRCS        = $(MAND_DIR)/main.c \
               $(GRAPH_DIR)/display_map.c \
               $(GRAPH_DIR)/init_mlx.c \
               $(GRAPH_DIR)/load_texture.c \
+			  $(GAME_DIR)/move.c \
+			  $(BONUS_DIR)/display_move.c \
+			  $(BONUS_DIR)/display_collectible.c \
               $(GNL_DIR)/get_next_line.c \
               $(GNL_DIR)/get_next_line_utils.c 
 

@@ -6,14 +6,14 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:34:38 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/10 17:19:00 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/11 20:56:16 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 #include "../../minilibx-linux/mlx.h"
 
-//charge map xmp et transforme ca en  imasge mlx
+// charge map xmp et transforme ca en  imasge mlx
 static void	*load_image(void *mlx, char *track)
 {
 	void	*texture;
@@ -29,13 +29,14 @@ static void	*load_image(void *mlx, char *track)
 	return (texture);
 }
 
-//charge les 5 image du jeuu mur sol eetc et stock tt dans game->textuure
+// charge les 5 image du jeuu mur sol eetc et stock tt dans game->textuure
 void	load_texture(t_game *game)
 {
-	game->texture.wall = load_image(game->mlx, "textures/asset_wall.xpm");
+	game->texture.wall = load_image(game->mlx, "textures/asset_wall_3.xpm");
 	game->texture.floor = load_image(game->mlx, "textures/asset_floor.xpm");
 	game->texture.player = load_image(game->mlx, "textures/asset_player.xpm");
-	game->texture.collect = load_image(game->mlx, "textures/asset_collect.xpm");
+	game->texture.collect = load_image(game->mlx,
+			"textures/asset_collect_2.xpm");
 	game->texture.exit = load_image(game->mlx, "textures/asset_exit.xpm");
 
 	if (!game->texture.wall || !game->texture.floor || !game->texture.collect

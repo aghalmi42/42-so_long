@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:21:10 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 18:49:37 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/11 20:10:48 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void	display_map(t_game *game)
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->texture.player,
 		game->player.pos.x * TILE_SIZE, game->player.pos.y * TILE_SIZE);
+	display_move(game);
+	display_collectible(game);
 }
