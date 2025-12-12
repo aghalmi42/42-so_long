@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:18:44 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 20:52:47 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 19:01:34 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <stdlib.h>
+# include <time.h>
 # include <unistd.h>
 
 # define TILE_SIZE 64
@@ -61,8 +62,16 @@ typedef struct s_texture
 	void			*player;
 	void			*collect;
 	void			*exit;
-	// void			*enemy;
+	void			*enemy;
+	void			*player_frame;
 }					t_texture;
+
+typedef struct s_enemy
+{
+	t_pos			pos;
+	int				direction;
+	struct s_enemy	*next;
+}					t_enemy;
 
 typedef struct s_game
 {
@@ -73,15 +82,10 @@ typedef struct s_game
 	t_texture		texture;
 	int				win_width;
 	int				win_height;
-	// t_enemy			*monster;
+	t_enemy			*monster;
+	int				frame;
+	int				speed_anim;
 }					t_game;
-
-// typedef struct s_enemy
-// {
-// 	t_pos			pos;
-// 	int				direction;
-// 	struct s_enemy	*next;
-// }					t_enemy;
 
 char				**read_file_to_array(char *file_name);
 t_map				parsing_map(char *file_name);
@@ -101,5 +105,11 @@ int					press_keypress(int keycode, t_game *game);
 void				convert(int n, char *str);
 void				display_move(t_game *game);
 void				display_collectible(t_game *game);
-
+void				init_enemy(t_game *game);
+void				free_enemy(t_enemy *enemy);
+void				check_collision_with_enemy(t_game *game);
+void				update_enemy(t_game *game);
+int					game_loop(t_game *game);
+void				*return_player_anim(t_game *game);
+void				update_anim(t_game *game);
 #endif

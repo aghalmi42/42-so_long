@@ -6,12 +6,12 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:58:12 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 11:26:16 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 19:12:21 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "mlx.h"
+#include "../include/so_long.h"
+#include "../minilibx-linux/mlx.h"
 
 int	press_keypress(int keycode, t_game *game)
 {
@@ -34,6 +34,7 @@ int	close_game(t_game *game)
 	int	i;
 
 	i = 0;
+	free_enemy(game->monster);
 	if (game->texture.wall)
 		mlx_destroy_image(game->mlx, game->texture.wall);
 	if (game->texture.floor)
@@ -44,8 +45,17 @@ int	close_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->texture.exit);
 	if (game->texture.collect)
 		mlx_destroy_image(game->mlx, game->texture.collect);
+	if (game->texture.enemy)
+		mlx_destroy_image(game->mlx, game->texture.enemy);
+	if (game->texture.player_frame)
+		mlx_destroy_image(game->mlx, game->texture.player_frame);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
 	while (game->map.grid && game->map.grid[i])
 	{
 		free(game->map.grid[i]);
@@ -60,6 +70,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
+	srand(time(NULL));
 	if (ac != 2 || !init_game(&game, av[1]))
 	{
 		ft_printf("Missing map.ber or fail game init *)\n");
@@ -74,6 +85,7 @@ int	main(int ac, char **av)
 	ft_printf("ESC for quit\n");
 	mlx_key_hook(game.win, press_keypress, &game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
+	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

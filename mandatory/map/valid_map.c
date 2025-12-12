@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:42:19 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 19:33:01 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 16:06:46 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ static int	check_valid_element(t_map *map)
 		while (x < map->width)
 		{
 			c = map->grid[y][x];
-			if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
+			if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E'
+				&& c != 'M')
 				return (0);
 			x++;
 		}

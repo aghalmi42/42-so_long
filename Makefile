@@ -6,7 +6,7 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/11 20:14:22 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/12 19:11:10 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,10 @@ SRCS        = $(MAND_DIR)/main.c \
 			  $(GAME_DIR)/move.c \
 			  $(BONUS_DIR)/display_move.c \
 			  $(BONUS_DIR)/display_collectible.c \
+			  $(BONUS_DIR)/enemy.c \
+			  $(BONUS_DIR)/enemy_utils.c \
+			  $(BONUS_DIR)/enemy_move.c \
+			  $(BONUS_DIR)/anim.c \
               $(GNL_DIR)/get_next_line.c \
               $(GNL_DIR)/get_next_line_utils.c 
 

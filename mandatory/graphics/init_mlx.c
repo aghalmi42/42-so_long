@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:12:37 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 20:56:57 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 19:04:03 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int	init_game(t_game *game, char *file_map)
 	game->player.pos = game->map.start;
 	game->player.collect = 0;
 	game->player.move = 0;
+	game->frame = 0;
+	game->speed_anim = 1;
+	init_enemy(game);
 	if (!init_mlx(game))
 		return (0);
 	return (1);

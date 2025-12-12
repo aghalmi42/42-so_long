@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_utils.c                                      :+:      :+:    :+:   */
+/*   anim.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 16:01:57 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 16:56:49 by aghalmi          ###   ########.fr       */
+/*   Created: 2025/12/12 16:59:01 by aghalmi           #+#    #+#             */
+/*   Updated: 2025/12/12 19:13:26 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 #include "../../minilibx-linux/mlx.h"
 
-int	game_loop(t_game *game)
+void	*return_player_anim(t_game *game)
 {
-	static int	count = 0;
+	if ((game->frame / game->speed_anim) % 2 == 0)
+		return (game->texture.player);
+	else
+		return (game->texture.player_frame);
+}
 
-	count++;
-	if (count >= 5000)
-	{
-		update_enemy(game);
-		check_collision_with_enemy(game);
-		display_map(game);
-		count = 0;
-	}
-	return (0);
+void	update_anim(t_game *game)
+{
+	game->frame++;
+	if (game->frame >= 1000)
+		game->frame = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:34:38 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 20:56:16 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 19:03:19 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	load_texture(t_game *game)
 	game->texture.player = load_image(game->mlx, "textures/asset_player.xpm");
 	game->texture.collect = load_image(game->mlx,
 			"textures/asset_collect_2.xpm");
-	game->texture.exit = load_image(game->mlx, "textures/asset_exit.xpm");
-
+	game->texture.exit = load_image(game->mlx, "textures/asset_exit_3.xpm");
+	game->texture.enemy = load_image(game->mlx, "textures/asset_enemy.xpm");
+	game->texture.player_frame = load_image(game->mlx, "textures/anim_player");
 	if (!game->texture.wall || !game->texture.floor || !game->texture.collect
-		|| !game->texture.player || !game->texture.exit)
+		|| !game->texture.player || !game->texture.exit || !game->texture.enemy
+		|| !game->texture.player_frame)
 	{
 		ft_printf("Error\nFail to load all texture *)\n");
 		exit(1);

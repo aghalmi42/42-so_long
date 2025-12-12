@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:07:06 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 21:04:30 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/12 19:06:59 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ void	move_player(t_game *game, int x, int y)
 	game->player.pos.x = new_x;
 	game->player.pos.y = new_y;
 	game->player.move++;
+	update_anim(game);
 	ft_printf("Move :%d\n", game->player.move);
 	collect_collectible(game, new_x, new_y);
 	check_win(game, new_x, new_y);
+	check_collision_with_enemy(game);
 	display_map(game);
 	display_move(game);
 	display_collectible(game);
