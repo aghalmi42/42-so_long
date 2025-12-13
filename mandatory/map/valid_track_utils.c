@@ -6,13 +6,12 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:19:45 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 16:46:31 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:15:46 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-// copy une line pour la grid en flood
 char	*copy_line(char *line, int width)
 {
 	char	*new_line;
@@ -31,7 +30,6 @@ char	*copy_line(char *line, int width)
 	return (new_line);
 }
 
-//free part de grid //en appel de f
 void	free_part_grid(char **grid, int line)
 {
 	int	i;
@@ -45,7 +43,6 @@ void	free_part_grid(char **grid, int line)
 	free(grid);
 }
 
-// copy de grid pour flood pour modif direct sur copy
 char	**copy_grid(t_map *map)
 {
 	char	**copy;
@@ -69,7 +66,6 @@ char	**copy_grid(t_map *map)
 	return (copy);
 }
 
-//free notre grid
 void	free_grid(char **grid)
 {
 	int	i;

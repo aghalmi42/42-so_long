@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:58:12 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 19:12:21 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:07:17 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,8 @@ int	press_keypress(int keycode, t_game *game)
 	return (0);
 }
 
-// clique sur croix rouge ferme le jeu
-int	close_game(t_game *game)
+static void	destroy_textures(t_game *game)
 {
-	int	i;
-
-	i = 0;
-	free_enemy(game->monster);
 	if (game->texture.wall)
 		mlx_destroy_image(game->mlx, game->texture.wall);
 	if (game->texture.floor)
@@ -49,13 +44,17 @@ int	close_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->texture.enemy);
 	if (game->texture.player_frame)
 		mlx_destroy_image(game->mlx, game->texture.player_frame);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-	}
+	if (game->texture.player_frame2)
+		mlx_destroy_image(game->mlx, game->texture.player_frame2);
+	if (game->texture.player_frame3)
+		mlx_destroy_image(game->mlx, game->texture.player_frame3);
+}
+
+static void	free_map_grid(t_game *game)
+{
+	int	i;
+
+	i = 0;
 	while (game->map.grid && game->map.grid[i])
 	{
 		free(game->map.grid[i]);
@@ -63,6 +62,20 @@ int	close_game(t_game *game)
 	}
 	if (game->map.grid)
 		free(game->map.grid);
+}
+
+int	close_game(t_game *game)
+{
+	free_enemy(game->monster);
+	destroy_textures(game);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	free_map_grid(game);
 	exit(0);
 }
 

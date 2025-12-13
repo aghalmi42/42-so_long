@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 20:03:38 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 20:11:12 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 00:50:21 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	display_collectible(t_game *game)
 	while (total[j])
 		display[i++] = total[j++];
 	display[i] = '\0';
-	mlx_string_put(game->mlx, game->win, 10, 40, 0x00FF00, display);
+	mlx_string_put(game->mlx, game->win, 10, 40, 0x000000, display);
 }

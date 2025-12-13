@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:39:47 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 21:06:59 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:15:29 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		count_line(t_line *list);
 void	free_list(t_line *list);
 char	**convert_list_to_array(t_line *list, int size);
 
-// check si extension est .ber
 static int	check_extension(char *file_name)
 {
 	int	len;
@@ -38,7 +37,6 @@ static int	check_extension(char *file_name)
 	return (1);
 }
 
-// pour oouvrir le fichieer
 static int	open_file(char *file_name)
 {
 	int	fd;
@@ -54,7 +52,6 @@ static int	open_file(char *file_name)
 	return (fd);
 }
 
-// on trim le \n et on add la line
 static t_line	*processus_of_line(t_line *list, char *line)
 {
 	char	*after_strtrim;
@@ -69,7 +66,6 @@ static t_line	*processus_of_line(t_line *list, char *line)
 	return (list);
 }
 
-// lis tt les line
 static t_line	*read_line(int fd)
 {
 	t_line	*list;
@@ -90,7 +86,6 @@ static t_line	*read_line(int fd)
 	return (list);
 }
 
-// converti .ber en string
 char	**read_file_to_array(char *file_name)
 {
 	t_line	*list;

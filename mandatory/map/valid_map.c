@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 18:42:19 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 16:06:46 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:15:33 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ static void	count_element(t_map *map, int *player_count, int *exit_count)
 	}
 }
 
-// check map rectangul mur 1 valid char
 int	valid_map(t_map *map)
 {
 	int	player_count;

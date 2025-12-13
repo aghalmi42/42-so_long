@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 20:05:35 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 16:45:16 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:15:52 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ static int	check_flood_result(t_map *map, char **grid)
 	return (1);
 }
 
-// check map is valid & copy de map en flood
 int	valid_track(t_map *map)
 {
 	char	**grid_copy;

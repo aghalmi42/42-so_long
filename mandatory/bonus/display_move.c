@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:55:35 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/11 20:11:29 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 00:50:29 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ void	display_move(t_game *game)
 		j++;
 	}
 	display[i] = '\0';
-	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFF00, display);
+	mlx_string_put(game->mlx, game->win, 10, 20, 0x000000, display);
 }

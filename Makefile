@@ -6,7 +6,7 @@
 #    By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/06 19:58:54 by aghalmi           #+#    #+#              #
-#    Updated: 2025/12/12 19:11:10 by aghalmi          ###   ########.fr        #
+#    Updated: 2025/12/13 01:13:10 by aghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,15 +56,17 @@ OBJS        = $(SRCS:.c=.o)
 MLX_DIR     = minilibx-linux
 MLX_LIB     = $(MLX_DIR)/libmlx.a
 
-# ==========================================
-# COLORS
-# ==========================================
-
 RESET       = \033[0m
 GREEN       = \033[32m
 YELLOW      = \033[33m
 BLUE        = \033[34m
 RED         = \033[31m
+
+all: $(NAME)
+
+%.o: %.c
+	@echo "$(YELLOW)🔨 Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
 	@echo "$(BLUE)📚 Compiling libft...$(RESET)"
@@ -81,7 +83,7 @@ $(MLX_LIB):
 	@make -C $(MLX_DIR) > /dev/null 2>&1
 	@echo "$(GREEN)✅ MiniLibX ready!$(RESET)"
 
-$(NAME): $(OBJS)
+$(NAME): $(MLX_LIB) $(LIBFT) $(FT_PRINTF) $(OBJS)
 	@echo "$(BLUE)🔗 Linking $(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) \
 		-L$(LIBFT_DIR) -lft \
@@ -89,12 +91,6 @@ $(NAME): $(OBJS)
 		-L$(MLX_DIR) -lmlx -lXext -lX11 -lm \
 		-o $(NAME)
 	@echo "$(GREEN)✅ $(NAME) created successfully!$(RESET)"
-
-all: $(MLX_LIB) $(LIBFT) $(FT_PRINTF) $(NAME)
-
-%.o: %.c
-	@echo "$(YELLOW)🔨 Compiling $<...$(RESET)"
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@echo "$(RED)🧹 Cleaning object files...$(RESET)"

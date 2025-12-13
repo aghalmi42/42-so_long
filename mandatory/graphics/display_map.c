@@ -6,14 +6,13 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:21:10 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 19:06:22 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:14:48 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 #include "../../minilibx-linux/mlx.h"
 
-// afficxhe une case de map a lecran
 static void	display_tile(t_game *game, int x, int y)
 {
 	char	c;
@@ -36,13 +35,32 @@ static void	display_tile(t_game *game, int x, int y)
 			pixel_x, pixel_y);
 }
 
-// parcourt map et appel la fonction que jai cree avant et affcihge player en fin
+static void	display_enemy(t_game *game)
+{
+	t_enemy	*enemy;
+
+	enemy = game->monster;
+	while (enemy)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->texture.enemy,
+			enemy->pos.x * TILE_SIZE, enemy->pos.y * TILE_SIZE);
+		enemy = enemy->next;
+	}
+}
+
+static void	display_entity(t_game *game)
+{
+	display_enemy(game);
+	mlx_put_image_to_window(game->mlx, game->win, return_player_anim(game),
+		game->player.pos.x * TILE_SIZE, game->player.pos.y * TILE_SIZE);
+	display_move(game);
+	display_collectible(game);
+}
+
 void	display_map(t_game *game)
 {
-	int	x;
-	int	y;
-	t_enemy *enemy;
-	void *player_sprite;
+	int		x;
+	int		y;
 
 	y = 0;
 	while (y < game->map.height)
@@ -55,19 +73,5 @@ void	display_map(t_game *game)
 		}
 		y++;
 	}
-	enemy = game->monster;
-	while (enemy)
-	{
-		mlx_put_image_to_window(game->mlx, game->win, game->texture.enemy,
-			enemy->pos.x * TILE_SIZE, enemy->pos.y * TILE_SIZE);
-		enemy = enemy->next;
-	}
-	player_sprite = return_player_anim(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->texture.player,
-		game->player.pos.x * TILE_SIZE, game->player.pos.y * TILE_SIZE);
-	display_move(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->texture.player,
-		game->player.pos.x * TILE_SIZE, game->player.pos.y * TILE_SIZE);
-	display_move(game);
-	display_collectible(game);
+	display_entity(game);
 }

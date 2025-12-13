@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:22:27 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/09 19:21:30 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:15:16 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ typedef struct s_line
 	struct s_line	*next;
 }					t_line;
 
-// ajj une ligne a la fin de la lst
 t_line	*add_line(t_line *list, char *content)
 {
 	t_line	*new;
@@ -38,7 +37,6 @@ t_line	*add_line(t_line *list, char *content)
 	return (list);
 }
 
-// count cmbien de maillon dans la lst
 int	count_line(t_line *list)
 {
 	int	count;
@@ -52,7 +50,6 @@ int	count_line(t_line *list)
 	return (count);
 }
 
-// free maillon
 void	free_list(t_line *list)
 {
 	t_line	*tmp;
@@ -65,7 +62,6 @@ void	free_list(t_line *list)
 	}
 }
 
-// convertir la lst en double tableau
 char	**convert_list_to_array(t_line *list, int size)
 {
 	char	**array;

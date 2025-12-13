@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 19:18:44 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 19:01:34 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 00:17:38 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_texture
 	void			*exit;
 	void			*enemy;
 	void			*player_frame;
+	void			*player_frame2;
+	void			*player_frame3;
 }					t_texture;
 
 typedef struct s_enemy

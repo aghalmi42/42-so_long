@@ -6,14 +6,13 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:07:06 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/12/12 19:06:59 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/13 01:14:26 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 #include "../../minilibx-linux/mlx.h"
 
-// verif si nv pose est valide
 static int	valid_move(t_game *game, int new_x, int new_y)
 {
 	if (new_x < 0 || new_x >= game->map.width)
@@ -25,7 +24,6 @@ static int	valid_move(t_game *game, int new_x, int new_y)
 	return (1);
 }
 
-// gere la collect de collectible
 static void	collect_collectible(t_game *game, int x, int y)
 {
 	if (game->map.grid[y][x] == 'C')
@@ -37,7 +35,6 @@ static void	collect_collectible(t_game *game, int x, int y)
 	}
 }
 
-// verif si player a win
 static void	check_win(t_game *game, int x, int y)
 {
 	if (game->map.grid[y][x] == 'E')
@@ -54,7 +51,6 @@ static void	check_win(t_game *game, int x, int y)
 	}
 }
 
-// deplacer le player
 void	move_player(t_game *game, int x, int y)
 {
 	int	new_x;
