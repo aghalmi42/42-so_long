@@ -6,7 +6,7 @@
 /*   By: aghalmi <aghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 21:50:27 by aghalmi           #+#    #+#             */
-/*   Updated: 2025/11/13 21:57:11 by aghalmi          ###   ########.fr       */
+/*   Updated: 2025/12/25 19:08:28 by aghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_unsigned_putnbr(unsigned int nbr)
 	size_t	count;
 
 	count = 0;
-	if (nbr >= 0 && nbr <= 9)
+	if (nbr <= 9)
 		count += ft_putchar(nbr + '0');
 	else
 	{
