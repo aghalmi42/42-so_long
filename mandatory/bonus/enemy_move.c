@@ -45,18 +45,8 @@ static void	try_move(t_game *game, t_enemy *enemy, int dx, int dy)
 static void	enemy_move_in_map(t_game *game, t_enemy *enemy)
 {
 	int	dir;
-	int	move;
 
-	move = 0;
 	dir = rand() % 4;
-	if (dir == 0)
-		move = 1;
-	else if (dir == 1)
-		move = 1;
-	else if (dir == 2)
-		move = 1;
-	else if (dir == 3)
-		move = 1;
 	if (dir == 0)
 		try_move(game, enemy, 1, 0);
 	else if (dir == 1)
